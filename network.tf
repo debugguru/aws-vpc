@@ -40,6 +40,32 @@ resource "aws_route_table_association" "route-public-subnet-c" {
 }
 
 
+//public route table
+resource "aws_route_table" "route-private" {
+  vpc_id = aws_vpc.vpc_SANDBOX.id
+
+  tags = {
+    Name        = "route-private"
+    Environment = "${var.ENV}"
+  }
+}
+
+//associate private subnets to private routes
+resource "aws_route_table_association" "route-private-subnet-a" {
+  subnet_id      = aws_subnet.private-subnet-a.id
+  route_table_id = aws_route_table.route-private.id
+}
+
+resource "aws_route_table_association" "route-private-subnet-b" {
+  subnet_id      = aws_subnet.private-subnet-b.id
+  route_table_id = aws_route_table.route-private.id
+}
+
+resource "aws_route_table_association" "route-private-subnet-c" {
+  subnet_id      = aws_subnet.private-subnet-c.id
+  route_table_id = aws_route_table.route-private.id
+}
+
 //network acl
 resource "aws_network_acl" "acl-SANDBOX" {
   vpc_id = aws_vpc.vpc_SANDBOX.id
