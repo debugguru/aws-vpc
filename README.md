@@ -3,7 +3,7 @@ Terraform code to create basic AWS VPC. Useful to create basic VPC in ACG Sandbo
 
 ## Steps
 1. Clone git repo
-2. Replace aws_access_key and aws_secret_key in provider.tf with you access and secret key
+2. Replace aws_access_key and aws_secret_key in provider.tf with your access and secret key
     ```
     provider "aws" {
     region = var.AWS_REGION
@@ -11,8 +11,8 @@ Terraform code to create basic AWS VPC. Useful to create basic VPC in ACG Sandbo
     secret_key = "aws_secret_key"
     }
     ```
-3. terraform init
-4. terraform validate
-5. terraform plan
-6. terraform apply
+3. ```terraform init```
+4. ```terraform validate```
+5. ```terraform plan```
+6. ```terraform apply```
 
